@@ -38,7 +38,8 @@ char		*ft_strjointillbsn(char *line, char *buff)
 	if (!(str = ft_strnew(ft_strlen(line) + lebbuff)))
 		return (NULL);
 	ft_strcpy(str, line);
-	ft_strlcat(str, buff, ft_strlen(line) + lebbuff + 1);
+	ft_strdel(&line);
+	ft_strlcat(str, buff, ft_strlen(str) + lebbuff + 1);
 	return (str);
 }
 
@@ -75,19 +76,22 @@ int			get_next_line(const int fd, char **line)
 	char		buff[BUFF_SIZE + 1];
 	int			errororsize;
 	static char *str;
+	char		*tmp;
 
 	if (fd < 0 || line == NULL || read(fd, buff, 0) < 0)
 		return (-1);
 	ft_memset(buff, '\0', BUFF_SIZE);
-	MALLCHECK((*line = ft_strnew(1)));
+	*line = ft_strnew(0);
 	if (str != NULL)
 	{
-		MALLCHECK((*line = ft_strjointillbsn(*line, str)));
+		*line = ft_strjointillbsn(*line, str);
+		tmp = str;
 		str = get_rest_buffer(str);
+		ft_strdel(&tmp);
 	}
 	while ((errororsize = read(fd, buff, BUFF_SIZE)))
 	{
-		MALLCHECK((*line = ft_strjointillbsn(*line, buff)));
+		*line = ft_strjointillbsn(*line, buff);
 		if ((ft_strchr(buff, '\n')))
 		{
 			str = get_rest_buffer(buff);
