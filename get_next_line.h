@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 13:55:06 by mbouzaie          #+#    #+#             */
-/*   Updated: 2019/03/06 19:47:04 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2019/03/13 21:42:07 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 # include <unistd.h>
 
-# define BUFF_SIZE 9999
+# define BUFF_SIZE 12
 
 int		get_next_line(const int fd, char **line);
 #endif
