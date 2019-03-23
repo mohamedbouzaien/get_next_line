@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 13:54:38 by mbouzaie          #+#    #+#             */
-/*   Updated: 2019/03/13 23:20:42 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2019/03/21 21:35:05 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,8 +105,7 @@ int			get_next_line(const int fd, char **line)
 	errororsize = 0;
 	ft_memset(buff, '\0', BUFF_SIZE);
 	str = fill_static(str, line);
-	if ((str != NULL && (ft_strcmp(str, "\n") == 0 || ft_strcmp(str, "") == 0))\
-		|| (str == NULL))
+	if ((str != NULL && (ft_strcmp(str, "\n") == 0)) || (str == NULL))
 		while ((errororsize = read(fd, buff, BUFF_SIZE)))
 		{
 			*line = ft_strjointillbsn(*line, buff);
