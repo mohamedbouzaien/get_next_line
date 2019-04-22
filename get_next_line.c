@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 13:54:38 by mbouzaie          #+#    #+#             */
-/*   Updated: 2019/03/21 21:35:05 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2019/04/01 21:57:55 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char		*get_rest_buffer(char *buff)
 	p = NULL;
 	while (i <= BUFF_SIZE)
 	{
-		if ((i < BUFF_SIZE) && (buff[i] == '\n') && buff[i + 1] != '\n')
+		if ((i < BUFF_SIZE) && (buff[i] == '\n'))
 		{
 			p = &buff[i + 1];
 			break ;
@@ -103,7 +103,7 @@ int			get_next_line(const int fd, char **line)
 		return (-1);
 	*line = NULL;
 	errororsize = 0;
-	ft_memset(buff, '\0', BUFF_SIZE);
+	ft_memset(buff, '\0', BUFF_SIZE + 1);
 	str = fill_static(str, line);
 	if ((str != NULL && (ft_strcmp(str, "\n") == 0)) || (str == NULL))
 		while ((errororsize = read(fd, buff, BUFF_SIZE)))
@@ -116,7 +116,7 @@ int			get_next_line(const int fd, char **line)
 			}
 			ft_strclr(buff);
 		}
-	if (str != NULL && (ft_strcmp(str, "\n") == 0 || ft_strcmp(str, "") == 0))
+	if (str != NULL &&  ft_strcmp(str, "") == 0)
 		ft_strdel(&str);
 	return ((errororsize < BUFF_SIZE && !(*line)) ? 0 : 1);
 }
