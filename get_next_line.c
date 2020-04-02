@@ -48,6 +48,6 @@ int		get_next_line(int const fd, char **line)
 		if ((*line && buff[fd][len]) || (!buff[fd][0] && *line[0]))
 			return (get_rest_buffer(buff[fd], len, *line));
 		ft_strclr((char *)&buff[fd]);
-		return (0);
 	}
+	return (0);
 }
