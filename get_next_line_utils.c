@@ -30,7 +30,7 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 	return (dst);
 }
 
-int		ft_chrloc(char *str, int ch)
+int		ft_chrloc(const char *str, int ch)
 {
 	size_t	length;
 
