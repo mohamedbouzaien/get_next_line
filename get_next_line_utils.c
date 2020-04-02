@@ -30,7 +30,7 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 	return (dst);
 }
 
-int	ft_chrloc(char *str, int ch)
+int		ft_chrloc(char *str, int ch)
 {
 	size_t	length;
 
@@ -46,7 +46,7 @@ char	*ft_strnjoin(const char *s1, const char *s2, size_t len)
 	char	*s;
 	char	*ret;
 
-	if (!(s = (char *)malloc(ft_chrloc(s1,'\0') + len + 1)))
+	if (!(s = (char *)malloc(ft_chrloc(s1, '\0') + len + 1)))
 		return (NULL);
 	ret = s;
 	while (s1 && *s1)
