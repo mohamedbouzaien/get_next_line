@@ -23,4 +23,5 @@ int		get_next_line(const int fd, char **line);
 int		ft_chrloc(char *str, int ch);
 char	*ft_strncpy(char *dst, const char *src, size_t len);
 char	*ft_strnjoin(const char *s1, const char *s2, size_t len);
+void	ft_strclr(char *s)
 #endif
