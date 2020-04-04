@@ -28,10 +28,10 @@ int		get_next_line(int const fd, char **line)
 	int		errorsize;
 	char		*str;
 	size_t		len;
-	static char	buff[OPEN_MAX][BUFF_SIZE + 1];
+	static char	buff[10][BUFF_SIZE + 1];
 
 	if (BUFF_SIZE <= 0 || fd < 0 || !(*line = (char *)malloc(2)) 
-		|| fd > OPEN_MAX)
+		|| fd > 10)
 		return (-1);
 	errorsize = 1;
 	while (errorsize > 0)

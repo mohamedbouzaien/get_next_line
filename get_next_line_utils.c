@@ -41,12 +41,25 @@ int		ft_chrloc(const char *str, int ch)
 	return (length);
 }
 
+size_t	ft_strlen(const char *s)
+{
+	size_t	len;
+
+	len = 0;
+	if (s)
+	{
+		while (s[len])
+			len++;
+	}
+	return (len);
+}
+
 char	*ft_strnjoin(const char *s1, const char *s2, size_t len)
 {
 	char	*s;
 	char	*ret;
 
-	if (!(s = (char *)malloc(ft_chrloc(s1, '\0') + len + 1)))
+	if (!(s = (char *)malloc(ft_strlen(s1) + len + 1)))
 		return (NULL);
 	ret = s;
 	while (s1 && *s1)
