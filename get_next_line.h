@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/01 18:51:31 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/04/02 17:56:54 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/04/05 23:58:37 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <limits.h>
 # include <stdlib.h>
 
-# define BUFF_SIZE 100
+# define BUFF_SIZE 1
 
 int		get_next_line(const int fd, char **line);
 int		ft_chrloc(const char *str, int ch);
