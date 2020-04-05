@@ -30,7 +30,7 @@ int		get_next_line(int const fd, char **line)
 	size_t		len;
 	static char	buff[10][BUFF_SIZE + 1];
 
-	if (BUFF_SIZE <= 0 || fd < 0 || !(*line = (char *)malloc(2)) 
+	if (BUFF_SIZE <= 0 || fd < 0 || !(*line = ft_strnew(1)) 
 		|| fd > 10)
 		return (-1);
 	errorsize = 1;

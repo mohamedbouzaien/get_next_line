@@ -41,17 +41,20 @@ int		ft_chrloc(const char *str, int ch)
 	return (length);
 }
 
-size_t	ft_strlen(const char *s)
+char	*ft_strnew(size_t size)
 {
-	size_t	len;
+	char	*str;
+	size_t	i;
 
-	len = 0;
-	if (s)
+	if (!(str =(char *) malloc(size + 1)))
+		return (NULL);
+	i = 0;
+	while (i < size)
 	{
-		while (s[len])
-			len++;
+		str[i] = 0;
+		i++;
 	}
-	return (len);
+	return (str);
 }
 
 char	*ft_strnjoin(const char *s1, const char *s2, size_t len)
@@ -59,7 +62,7 @@ char	*ft_strnjoin(const char *s1, const char *s2, size_t len)
 	char	*s;
 	char	*ret;
 
-	if (!(s = (char *)malloc(ft_strlen(s1) + len + 1)))
+	if (!(s = ft_strnew(ft_chrloc(s1, '\0') + len)))
 		return (NULL);
 	ret = s;
 	while (s1 && *s1)
