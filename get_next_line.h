@@ -23,7 +23,7 @@
 int		get_next_line(const int fd, char **line);
 int		ft_chrloc(const char *str, int ch);
 char	*ft_strncpy(char *dst, const char *src, size_t len);
-char	*ft_strnjoin(const char *s1, const char *s2, size_t len);
-char	*ft_strnew(size_t size);
+char	*ft_strnjoin(const char *s1, const char *s2, int len);
+char	*ft_strnew(int size);
 void	*ft_memset(void *b, int c, size_t len);
 #endif

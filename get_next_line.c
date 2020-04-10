@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-static	int	get_rest_buffer(char buff[BUFF_SIZE + 1], size_t len, char *line)
+static	int	get_rest_buffer(char buff[BUFF_SIZE + 1], int len, char *line)
 {
 	if (!buff[0] && line[0])
 		buff[0] = '\0';
@@ -32,8 +32,8 @@ static	int	get_rest_buffer(char buff[BUFF_SIZE + 1], size_t len, char *line)
 int		get_next_line(int const fd, char **line)
 {
 	int		errorsize;
+	int		len;
 	char		*str;
-	size_t		len;
 	static char	buff[10][BUFF_SIZE + 1];
 
 	if (BUFF_SIZE <= 0 || fd < 0 || !(*line = ft_strnew(1)) 

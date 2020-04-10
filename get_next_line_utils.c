@@ -60,16 +60,18 @@ void	*ft_memset(void *b, int c, size_t len)
 	return (b);
 }
 
-char	*ft_strnew(size_t size)
+char	*ft_strnew(int size)
 {
 	char	*str;
 
+	if (size == -1)
+		size = 0;
 	if (!(str =(char *) malloc(size + 1)))
 		return (NULL);
 	return (ft_memset(str, 0, size + 1));
 }
 
-char	*ft_strnjoin(const char *s1, const char *s2, size_t len)
+char	*ft_strnjoin(const char *s1, const char *s2, int len)
 {
 	char	*s;
 	char	*ret;
