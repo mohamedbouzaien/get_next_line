@@ -17,6 +17,8 @@ int	main(int argc, char **argv)
 {
 	int		fd;
 	char	*line;
+	int i;
+	int j;
 
 	if (argc == 0)
 		fd = 0;
@@ -24,10 +26,12 @@ int	main(int argc, char **argv)
 		fd = open(argv[1], 'r');
 	else
 		return (2);
-	while (get_next_line(fd, &line) == 1)
+	j = 0;
+	while ((i = get_next_line(fd, &line)) != -1 && j < 5)
 	{
-		printf("%s\n", line);
+		printf("return : %d | %s\n", i, line);
 		free(line);
+		j++;
 	}
 	if (argc == 2)
 		close(fd);

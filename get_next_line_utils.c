@@ -14,15 +14,15 @@
 
 char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	int i;
+	size_t i;
 
 	i = 0;
-	while (src[i] != '\0' && (size_t)i < len)
+	while (src[i] != '\0' && i < len)
 	{
 		dst[i] = src[i];
 		i++;
 	}
-	while ((size_t)i < len)
+	while (i < len)
 	{
 		dst[i] = '\0';
 		i++;
@@ -38,23 +38,35 @@ int		ft_chrloc(const char *str, int ch)
 	if (str)
 		while (str[length] != ch && str[length] != '\0')
 			length++;
+	if (length == 0 && str[0] != ch)
+		return (-1);
 	return (length);
+}
+
+void	*ft_memset(void *b, int c, size_t len)
+{
+	int				i;
+	char			*p;
+	unsigned char	mychar;
+
+	mychar = (unsigned char)c;
+	p = (char *)b;
+	i = 0;
+	while ((size_t)i < len)
+	{
+		p[i] = mychar;
+		i++;
+	}
+	return (b);
 }
 
 char	*ft_strnew(size_t size)
 {
 	char	*str;
-	size_t	i;
 
 	if (!(str =(char *) malloc(size + 1)))
 		return (NULL);
-	i = 0;
-	while (i < size)
-	{
-		str[i] = 0;
-		i++;
-	}
-	return (str);
+	return (ft_memset(str, 0, size + 1));
 }
 
 char	*ft_strnjoin(const char *s1, const char *s2, size_t len)
@@ -72,14 +84,3 @@ char	*ft_strnjoin(const char *s1, const char *s2, size_t len)
 	return (ret);
 }
 
-void	ft_strclr(char *s)
-{
-	int i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		s[i] = '\0';
-		i++;
-	}
-}

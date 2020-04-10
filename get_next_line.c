@@ -18,9 +18,15 @@ static	int	get_rest_buffer(char buff[BUFF_SIZE + 1], size_t len, char *line)
 		buff[0] = '\0';
 	else
 	{
-		ft_strncpy(buff, &buff[len + 1], BUFF_SIZE + 1);
+		if (ft_chrloc(buff,'\n') != -1)
+		{
+			ft_strncpy(buff, &buff[len + 1], BUFF_SIZE + 1);
+			return (1);
+		}
+		else
+			ft_memset(buff, 0, ft_chrloc(buff, '\0'));
 	}
-	return(1);
+	return(0);
 }
 
 int		get_next_line(int const fd, char **line)
@@ -47,7 +53,7 @@ int		get_next_line(int const fd, char **line)
 		str = NULL;
 		if ((*line && buff[fd][len]) || (!buff[fd][0] && *line[0]))
 			return (get_rest_buffer(buff[fd], len, *line));
-		ft_strclr((char *)&buff[fd]);
+		ft_memset(buff[fd], 0, ft_chrloc(buff[fd], '\0'));
 	}
 	return (0);
 }
