@@ -18,7 +18,7 @@
 # include <limits.h>
 # include <stdlib.h>
 
-# define BUFF_SIZE 1000
+# define BUFFER_SIZE 1000
 
 int		get_next_line(const int fd, char **line);
 int		ft_chrloc(const char *str, int ch);

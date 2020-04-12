@@ -2,7 +2,7 @@
 #include<fcntl.h> 
 #include<unistd.h>
 #include<stdbool.h>
-#include "gnl_cpy/get_next_line.h"
+#include "get_next_line.h"
 #include<string.h>
 #include<time.h>
 int  fd;

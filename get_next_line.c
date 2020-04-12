@@ -6,13 +6,13 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/26 22:37:14 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/04/01 17:19:10 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/04/12 15:42:21 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static	int	get_rest_buffer(char buff[BUFF_SIZE + 1], int len, char *line)
+static	int	get_rest_buffer(char buff[BUFFER_SIZE + 1], int len, char *line)
 {
 	if (!buff[0] && line[0])
 		buff[0] = '\0';
@@ -20,7 +20,7 @@ static	int	get_rest_buffer(char buff[BUFF_SIZE + 1], int len, char *line)
 	{
 		if (ft_chrloc(buff,'\n') != -1)
 		{
-			ft_strncpy(buff, &buff[len + 1], BUFF_SIZE + 1);
+			ft_strncpy(buff, &buff[len + 1], BUFFER_SIZE + 1);
 			return (1);
 		}
 		else
@@ -34,16 +34,16 @@ int		get_next_line(int const fd, char **line)
 	int		errorsize;
 	int		len;
 	char		*str;
-	static char	buff[10][BUFF_SIZE + 1];
+	static char	buff[10][BUFFER_SIZE + 1];
 
-	if (BUFF_SIZE <= 0 || fd < 0 || !(*line = ft_strnew(1)) 
+	if (BUFFER_SIZE <= 0 || fd < 0 || !(*line = ft_strnew(1)) 
 		|| fd > 10)
 		return (-1);
 	errorsize = 1;
 	while (errorsize > 0)
 	{
 		if (!buff[fd][0])
-			errorsize = read(fd, &buff[fd], BUFF_SIZE);
+			errorsize = read(fd, &buff[fd], BUFFER_SIZE);
 		if (errorsize < 0) 
 			return (errorsize);
 		len = ft_chrloc(buff[fd], '\n');
