@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/01 18:51:31 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/04/12 15:51:29 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/04/12 16:17:58 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdlib.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1000
+#  define BUFFER_SIZE 100
 # endif
 
 int		get_next_line(const int fd, char **line);
