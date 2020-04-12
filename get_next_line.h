@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/01 18:51:31 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/04/05 23:58:37 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/04/12 15:51:29 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 # include <limits.h>
 # include <stdlib.h>
 
-# define BUFFER_SIZE 1000
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1000
+# endif
 
 int		get_next_line(const int fd, char **line);
 int		ft_chrloc(const char *str, int ch);
