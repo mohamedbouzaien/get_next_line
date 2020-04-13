@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 15:00:46 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/04/12 16:32:11 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/04/13 16:33:58 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	else
 		return (2);
 	j = 0;
-	while (j < 100 && (i = get_next_line(fd, &line)) != -1)
+	while (j < 6 && (i = get_next_line(fd, &line)) != -1)
 	{
 		printf("return : %d | %s\n", i, line);
 		free(line);
