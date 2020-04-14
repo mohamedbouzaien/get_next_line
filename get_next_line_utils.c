@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/01 17:39:47 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/04/01 18:44:31 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/04/14 01:41:18 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ char	*ft_strnjoin(const char *s1, const char *s2, int len)
 		*s++ = *s1++;
 	while (*s2 && s2 && len--)
 		*s++ = *s2++;
+	*s = '\0';
 	return (ret);
 }
 

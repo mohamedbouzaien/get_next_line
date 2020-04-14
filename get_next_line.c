@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/26 22:37:14 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/04/12 15:42:21 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/04/14 02:32:42 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int		get_next_line(int const fd, char **line)
 	char		*str;
 	static char	buff[10][BUFFER_SIZE + 1];
 
-	if (BUFFER_SIZE <= 0 || fd < 0 || !(*line = ft_strnew(1)) 
-		|| fd > 10)
+	if (BUFFER_SIZE <= 0 || fd < 0 || line == NULL ||
+			!(*line = ft_strnew(1)) || fd > 10)
 		return (-1);
 	errorsize = 1;
 	while (errorsize > 0)
@@ -48,7 +48,8 @@ int		get_next_line(int const fd, char **line)
 			return (errorsize);
 		len = ft_chrloc(buff[fd], '\n');
 		str = *line;
-		*line = ft_strnjoin(str, buff[fd], len);
+		if (!(*line = ft_strnjoin(str, buff[fd], len)))
+			return (-1);
 		free(str);
 		str = NULL;
 		if ((*line && buff[fd][len]) || (!buff[fd][0] && *line[0]))
