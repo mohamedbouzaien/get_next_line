@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/01 17:39:47 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/04/14 01:41:18 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/04/16 17:16:49 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,8 @@ char	*ft_strnjoin(const char *s1, const char *s2, int len)
 {
 	char	*s;
 	char	*ret;
-
+	if (len == -1)
+		len = 0;
 	if (!(s = ft_strnew(ft_chrloc(s1, '\0') + len)))
 		return (NULL);
 	ret = s;
